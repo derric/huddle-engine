@@ -235,14 +235,14 @@
 
         <StackPanel Orientation="Horizontal"
                     Background="DeepSkyBlue"
-                    Grid.Row="1">
+                    Grid.Row="1" Height="40">
             <Button IsEnabled="{Binding Path=Mode, Mode=OneWay, Converter={util:PipelineModeToBoolConverter Mode=Stopped}}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
                         <command:EventToCommand Command="{Binding Path=StartCommand, Mode=OneWay}" PassEventArgsToCommand="False" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-                <Image Source="/Huddle.Engine;component/Resources/play.png" />
+                <Image Source="/Huddle.Engine;component/Resources/play.png" Width="20" Height="20" Margin="0,2,0,0" />
             </Button>
             <Button IsEnabled="{Binding Path=Mode, Mode=OneWay, Converter={util:PipelineModeToBoolConverter Mode=Started}}">
                 <i:Interaction.Triggers>
@@ -250,7 +250,7 @@
                         <command:EventToCommand Command="{Binding Path=StopCommand, Mode=OneWay}" PassEventArgsToCommand="False" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-                <Image Source="/Huddle.Engine;component/Resources/stop.png" />
+                <Image Source="/Huddle.Engine;component/Resources/stop.png" Width="20" Height="20" Margin="0,2,0,0" />
             </Button>
             <!--<Button IsEnabled="{Binding Path=Mode, Mode=OneWay, Converter={util:PipelineModeToBoolConverter Mode=Started}}">
                 <i:Interaction.Triggers>
@@ -266,7 +266,7 @@
                         <command:EventToCommand Command="{Binding Path=NewCommand, Mode=OneWay}" PassEventArgsToCommand="False" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-                <Image Source="/Huddle.Engine;component/Resources/32x32/add_file.png" />
+                <Image Source="/Huddle.Engine;component/Resources/32x32/add_file.png" Width="18" Height="18" Margin="0,2,0,0" />
             </Button>
             <Button>
                 <i:Interaction.Triggers>
@@ -274,7 +274,7 @@
                         <command:EventToCommand Command="{Binding Path=OpenCommand, Mode=OneWay}" PassEventArgsToCommand="False" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-                <Image Source="/Huddle.Engine;component/Resources/32x32/folder.png" />
+                <Image Source="/Huddle.Engine;component/Resources/32x32/folder.png" Width="18" Height="18" Margin="0,2,0,0" />
             </Button>
             <Button IsEnabled="{Binding Mode=OneWay, Converter={util:NullToBoolConverter}}">
                 <i:Interaction.Triggers>
@@ -282,10 +282,10 @@
                         <command:EventToCommand Command="{Binding Path=SaveCommand, Mode=OneWay}" PassEventArgsToCommand="False" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-                <Image Source="/Huddle.Engine;component/Resources/32x32/save_as.png" />
+                <Image Source="/Huddle.Engine;component/Resources/32x32/save_as.png" Width="18" Height="18" Margin="0,2,0,0" />
             </Button>
 
-            <TextBlock Text="{Binding Path=Model.Fps, Mode=OneWay, StringFormat={}{0:#.#} Fps}" FontSize="44" />
+            <TextBlock Text="{Binding Path=Model.Fps, Mode=OneWay, StringFormat={}{0:#.#} Fps}" FontSize="24" />
         </StackPanel>
 
         <Grid Row="2">
@@ -309,7 +309,8 @@
                               AutoWrapContentWithViewbox="True"
                               AllowDrop="True"
                               MaxScale="5"
-                              MinScale="0.1">
+                              MinScale="0.1"
+                              DragModifiers="Ctrl">
                     <i:Interaction.Triggers>
                         <util:EventTriggerAdvanced EventName="MouseWheel">
                             <command:EventToCommand Command="{Binding Path=ZoomCommand, Mode=OneWay}" PassEventArgsToCommand="True" />
